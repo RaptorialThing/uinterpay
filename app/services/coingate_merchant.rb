@@ -1,7 +1,7 @@
 class CoingateMerchant
    def initialize
     CoinGate.config do |config|
-        config.auth_token  = 'qgN-5Rb-qu1wU29Ga8XDusW2Nsf51SQPWpGmzdiA'
+        config.auth_token  = 'secret'
         config.environment = 'sandbox' # live or sandbox. Default: live
     end
    end
