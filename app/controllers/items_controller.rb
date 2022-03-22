@@ -1,6 +1,6 @@
 class ItemsController < ApplicationController
     def index
-        @items = Item.all.limit(10)
+        @items = Item.all.limit(10).reverse
     end
 
     def new
@@ -49,7 +49,7 @@ class ItemsController < ApplicationController
        item = Item.find(params[:id])
 
        if item.user == current_user
-          item.destory
+          item.destroy
           redirect_to root_path
        else 
          redirect_to item
