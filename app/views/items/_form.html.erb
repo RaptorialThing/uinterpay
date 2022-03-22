@@ -1,0 +1,14 @@
+<%= form_with model: @item,class: "form-group" do |f| %>
+
+   <%= f.label :name %>
+   <%= f.text_field :name %> </br>
+
+   <%= f.label :currency %>
+   <%= f.select :currency,  ["LTC","BTC"].collect {|e| [e.to_sym,e.to_s] } %> </br>
+
+   <%= f.label :count %>
+   <%= f.number_field :count %> </br>
+
+<%= f.submit "Save" %>
+
+<% end %>

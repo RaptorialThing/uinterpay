@@ -1,0 +1,38 @@
+<h2>My page</h2>
+<div class="container">
+<table class="table table-striped">
+<tbody>
+<tr>
+<th scope="row">email</th>
+<td scope="col"><%= current_user.email%></td>
+</tr>
+
+
+<% if current_user.admin %>
+<tr>
+<th scope="row">admin</th>
+<td scope="col">
+<span style="color:green"> Yes </span>
+</td>
+</tr>
+<%end%>
+
+<tbody>
+</table>
+
+<table class="table table-striped mt-5">
+<tbody>
+<% @payments.each do |payment|%>
+<tr>
+<th class="col-6">Item</th>
+<td class="col-6"><%= link_to payment.item.name, item_path(payment.item) %> </td>
+</tr> 
+<tr>
+<td class="col-6"><%= payment.item.currency %> </td>
+<td class="col-6"><%= payment.item.count %> </td>
+</tr> 
+<% end %>
+</tbody>
+</table>
+
+</div>

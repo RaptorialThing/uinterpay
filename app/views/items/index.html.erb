@@ -1,0 +1,47 @@
+
+
+<div class="container">
+<div class="row">
+<div class="col-12 text-center">
+<h2>Uinterpay  - pay online all over the wourld</h2>
+</div>
+</div>
+
+
+<% if current_user.admin %>
+<div class="row">
+<div class="col-12 text-center">
+   <%= button_to "New Item", new_item_path, method: :get, class: "btn btn-primary"%>
+</div>
+</div>
+<% end %>
+
+<% @items.each do |item| %>
+<div class="row mt-2 align-items-center">
+
+<div class="col-6">
+<table class="table table-striped">
+<tbody>
+<tr>
+<th>Currency</th>
+<td><%= item.currency%> </td>
+</tr>
+<tr>
+<th>Count</th>
+<td><%= item.count %></td>
+</tr>
+</tbody>
+</table>
+</div>
+
+
+<div class="col-6">
+<div class="d-flex justify-content-center">
+<%= button_to "Show", item, method: :get, class: "btn btn-info "%>
+</div>
+</div>
+
+</div>
+<% end %>
+
+</div>

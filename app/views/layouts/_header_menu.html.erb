@@ -1,0 +1,54 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="/">Main</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+        <% if current_user %>
+        <a class="nav-link active" aria-current="page" href=<%=user_path(current_user)%>>My page</a> 
+        <% else %>
+        <%= button_to(
+        "My page",
+        new_user_session_path,
+        method: :get,
+        class: "btn"
+      ) %>
+        <% end %>
+            
+          </li>
+          <li class="nav-item">
+            <%= button_to(
+        "Shop",
+        items_path,
+        method: :get,
+        class: "btn"
+      ) %>
+          </li>
+        </ul>
+        <div class="d-flex">
+         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+        <% if current_user %>
+            <%= button_to(
+        "Log Out",
+        destroy_user_session_path,
+        method: :delete,
+        class: "btn"
+      ) %>
+        <% else %>
+            <%= button_to(
+        "Log in",
+        new_user_session_path,
+        method: :get,
+        class: "btn"
+      ) %>
+        <% end %>
+          </li>
+        </ul>
+        </div>
+      </div>
+    </div>
+  </nav>
