@@ -10,17 +10,17 @@ class CoingateMerchant
     order = CoinGate::Merchant::Order.find(1)
    end
 
-   def create_order(:order_id=>"ORDER-#{Proc.new{n=Random.new; n.rand}.call}",
-    :price_amount=>1050,:item,:user)
+   def create_order(order_id="ORDER-#{Proc.new{n=Random.new; n.rand}.call}",
+    price_amount=1050)
 
     post_params = {
-        order_id:         :order_id,
-        price_amount:     :price_amount,
+        order_id:         order_id,
+        price_amount:     price_amount,
         price_currency:   'USD',
         receive_currency: 'EUR',
-        callback_url:     item_path(item),
-        cancel_url:       root_path,
-        success_url:      user_path(user),
+        callback_url:     "/",
+        cancel_url:       "/",
+        success_url:      "/",
         description:      'Apple Iphone 6'
       }
       
