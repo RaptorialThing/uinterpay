@@ -20,7 +20,7 @@ class CoingateMerchant
         receive_currency: 'EUR',
         callback_url:     "https://bravo-webdev.herokuapp.com",
         cancel_url:       "https://bravo-webdev.herokuapp.com/items",
-        success_url:      "https://bravo-webdev.herokuapp.com/user/#{user}",
+        success_url:      "https://bravo-webdev.herokuapp.com/users/#{user}",
         description:      description
       }
       
