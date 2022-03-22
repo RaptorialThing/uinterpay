@@ -1,7 +1,7 @@
 class CoingateMerchant
    def initialize
     CoinGate.config do |config|
-        config.auth_token  = 'qgN-5Rb-qu1wU29Ga8XDusW2Nsf51SQPWpGmzdiA'
+        config.auth_token  = 'secret'
         config.environment = 'sandbox' # live or sandbox. Default: live
     end
    end
@@ -11,16 +11,16 @@ class CoingateMerchant
    end
 
    def create_order(:order_id=>"ORDER-#{Proc.new{n=Random.new; n.rand}.call}",
-    :price_amount=>1050)
+    :price_amount=>1050,:item,:user)
 
     post_params = {
         order_id:         :order_id,
         price_amount:     :price_amount,
         price_currency:   'USD',
         receive_currency: 'EUR',
-        callback_url:     items_path,
+        callback_url:     item_path(item),
         cancel_url:       root_path,
-        success_url:      'https://example.com/account/orders',
+        success_url:      user_path(user),
         description:      'Apple Iphone 6'
       }
       
