@@ -1,7 +1,7 @@
 class CoingateMerchant
    def initialize
     CoinGate.config do |config|
-        config.auth_token  = 'qu1wU29Ga8XDusW2Nsf51SQPWpGmzdiA'
+        config.auth_token  = 'qgN-5Rb-qu1wU29Ga8XDusW2Nsf51SQPWpGmzdiA'
         config.environment = 'sandbox' # live or sandbox. Default: live
     end
    end
@@ -18,9 +18,9 @@ class CoingateMerchant
         price_amount:     price_amount,
         price_currency:   price_currency,
         receive_currency: 'EUR',
-        callback_url:     "heroku",
-        cancel_url:       "heroku/items",
-        success_url:      "heroku/user/#{user}",
+        callback_url:     "https://bravo-webdev.herokuapp.com",
+        cancel_url:       "https://bravo-webdev.herokuapp.com/items",
+        success_url:      "https://bravo-webdev.herokuapp.com/user/#{user}",
         description:      description
       }
       
