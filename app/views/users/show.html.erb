@@ -22,7 +22,8 @@
 
 <table class="table table-striped mt-5">
 <tbody>
-<% @payments.each do |payment|%>
+<% if not @payments.nil? %>
+<%@payments.each do |payment|%>
 <tr>
 <th class="col-6">Item</th>
 <td class="col-6"><%= link_to payment.item.name, item_path(payment.item) %> </td>
@@ -30,7 +31,8 @@
 <tr>
 <td class="col-6"><%= payment.item.currency %> </td>
 <td class="col-6"><%= payment.item.count %> </td>
-</tr> 
+</tr>
+<% end %> 
 <% end %>
 </tbody>
 </table>

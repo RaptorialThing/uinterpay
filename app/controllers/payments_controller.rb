@@ -11,6 +11,7 @@ class PaymentsController < ApplicationController
        payment = Payment.new(payment_params)
        payment.user = User.find(params[:payment][:user])
        payment.item = Item.find(params[:payment][:item])
+       payment.save
 
        gate = CoingateMerchant.new 
        order = gate.create_order(order_id="ORDER-#{Proc.new{n=Random.new; n.rand}.call}",
